@@ -1,0 +1,75 @@
+{
+  "workrecord": [
+    {
+      "id": 1,
+      "date": "2024-07-01",
+      "worktype": "Planting",
+      "area": 3.5,
+      "total_amount": 500,
+      "advance": 100,
+      "note": "Planted corn"
+    },
+    {
+      "id": 2,
+      "date": "2024-07-02",
+      "worktype": "Harvesting",
+      "area": 2.8,
+      "total_amount": 700,
+      "advance": 200,
+      "note": "Harvested wheat"
+    },
+    {
+      "id": 3,
+      "date": "2024-07-03",
+      "worktype": "Irrigation",
+      "area": 4.0,
+      "total_amount": 300,
+      "advance": 50,
+      "note": "Irrigated rice field"
+    },
+    {
+      "id": 4,
+      "date": "2024-07-04",
+      "worktype": "Weeding",
+      "area": 1.5,
+      "total_amount": 250,
+      "advance": 75,
+      "note": "Removed weeds from vegetable garden"
+    },
+    {
+      "id": 5,
+      "date": "2024-07-05",
+      "worktype": "Fertilizing",
+      "area": 2.2,
+      "total_amount": 400,
+      "advance": 100,
+      "note": "Applied fertilizer to the fruit orchard"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "role": "Farmer",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "role": "Manager",
+      "email": "jane.smith@example.com"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Green Farm",
+      "contact": "green.farm@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Sunny Fields",
+      "contact": "sunny.fields@example.com"
+    }
+  ]
+}
