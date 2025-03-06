@@ -34,11 +34,11 @@ export const SlideBar = () => {
            </div>
            <div className='my-2 cursor-pointer'>
            <i className="bi bi-person-lines-fill"></i>
-            <Link to="/dashboard/client" className='mx-2'>Cleints</Link>
+            <Link to="/dashboard/client" className='mx-2'>Clients</Link>
            </div>
            <div className='my-2 cursor-pointer'>
            <i className="bi bi-pie-chart"></i>
-            <Link to="/dashboard/clientprofile" className='mx-2'>Reports</Link>
+            <Link to="/dashboard/printBill" className='mx-2'>Invoices</Link>
            </div>
           </ul>
 

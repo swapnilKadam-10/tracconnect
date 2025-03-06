@@ -62,11 +62,7 @@ const WorkSchema = new mongoose.Schema({
     ref: "Client",
     required: [true, "Associated client is required"],
   },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: [true, "Created by user is required"],
-  },
+  
 });
 
 

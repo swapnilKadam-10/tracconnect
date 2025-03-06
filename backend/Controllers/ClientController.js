@@ -10,6 +10,7 @@ const clientsInfo = async (req, res) => {
     res.status(500).json({ message: "Error fetching clients", error });
   }
 };
+
 // TODO: add new client 
 
 const addClient = async (req, res) => {
@@ -62,6 +63,7 @@ const addClient = async (req, res) => {
     });
   }
 };
+
 //TODO: Remove a client by phone number, associated with the logged-in user
 const deleteClient =  async (req, res) => {
   const { phoneNo } = req.body; // Extract phoneNo from the request body
@@ -103,7 +105,6 @@ const deleteClient =  async (req, res) => {
 }
 
 //TODO: Get imfomation about perticular client.
-
 const client = async (req, res) => {
   const { phoneNo } = req.body;
   try {

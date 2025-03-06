@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 
 export const AddWorkDetails = ({setShowAdd, workRecords}) => {
 
-  const ClientID = JSON.stringify(sessionStorage.getItem('ClientID'));
+  const ClientID = sessionStorage.getItem("ClientID");
+  const [tAmount, setAmount] = useState(0);
   const handleAdd = async (e) => {
     e.preventDefault();
     const rate = e.target.rate.value; 
     const area = e.target.area.value > 0 ? e.target.area.value : 1; 
     const advance = e.target.advance.value;
     const total = rate * area;
+    setAmount(total);
 
     const workDetails = {
       date : e.target.date.value,
@@ -19,11 +22,10 @@ export const AddWorkDetails = ({setShowAdd, workRecords}) => {
       totalAmount : total,
       advancePayment : advance,
       finalPayableAmount : total - advance,
-      note : e.target.note.value,
       associatedClient : ClientID
     }
 
-    console.log(workDetails)
+    console.log(workDetails);
 
     try {
           const url = "http://localhost:8080/work/clientprofile";
@@ -36,7 +38,7 @@ export const AddWorkDetails = ({setShowAdd, workRecords}) => {
           });
     
           const data = await response.json();
-          if (response.status === 200) {
+          if (response.status === 201) {
             toast.success("Successfully Added!!");
           } else {
             toast.error(data);
@@ -45,6 +47,15 @@ export const AddWorkDetails = ({setShowAdd, workRecords}) => {
           console.error("Error :", e.message);
           throw e;
         }
+
+       setTimeout(() => {
+        e.target.date.value = "";
+        e.target.work.value = "";
+        e.target.area.value = "";
+        e.target.advance.value = "";
+        e.target.amount.value = "";
+        e.target.rate.value = "";
+       }, 2000);
   };
 
   return (
@@ -108,7 +119,7 @@ export const AddWorkDetails = ({setShowAdd, workRecords}) => {
                   name="amount"
                   id="amount"
                   className="border bg-slate-100  h-10 rounded-md cursor-not-allowed outline-none mb-5 px-2"
-                  value="3200"
+                  value={`${tAmount}`}
                   readOnly
                 />
 
@@ -120,12 +131,12 @@ export const AddWorkDetails = ({setShowAdd, workRecords}) => {
                   className="border bg-slate-100 outline-blue-300 h-10 rounded-md mb-5"
                 />
 
-                <label htmlFor="note">Note :</label>
+                {/* <label htmlFor="note">Note :</label>
                 <textarea
                   name="note"
                   id="note"
                   className="border bg-slate-100 outline-blue-300 rounded-md resize-none"
-                />
+                /> */}
               </div>
               <button className="my-5 py-1 px-5 bg-green-600 w-24 m-auto text-white rounded-md">
                 Submit

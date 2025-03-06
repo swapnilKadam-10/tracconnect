@@ -9,12 +9,14 @@ export const ClientList = ({clients}) => {
   const [showRemove, setShowRemove] = useState(false);
 
   const navigate = useNavigate();
+  const token = JSON.parse(sessionStorage.getItem("jwtToken"));
   
   // const [clients, setClients] = useState([]);
+
+
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
 
-  // const token = JSON.parse(sessionStorage.getItem("jwtToken"));
 
 
   // useEffect(() => {
@@ -235,7 +237,7 @@ export const ClientList = ({clients}) => {
                 <tr key={client._id}>
                   <td className="py-2 px-4 border-b border-gray-200">{i++}</td>
                   <td className="py-2 px-4 border-b border-gray-200 cursor-pointer hover:underline ">
-                    <Link to="/dashboard/clientprofile" >{client.name}</Link>
+                    <Link to = {`/dashboard/clientprofile/${client._id}`} >{client.name}</Link>
                   </td>
                   <td className="py-2 px-4 border-b border-gray-200">
                     {client.phoneNo}

@@ -6,6 +6,9 @@ import { Profile } from './components/Profile'
 import { ClientList } from './components/ClientList'
 import { ClientProfile } from './ClientProfile'
 import { useTitle } from '../../hooks/useTitle'
+import { BillFormat }from '../../components/Elements/BillFormat'
+import { Invoice } from './components/Invoice'
+import { ClientInvoiceList } from './components/ClientInvoiceList'
 
 export const DashboardPage = () => {
   const [clients, setClients] = useState([]);
@@ -66,7 +69,11 @@ useTitle('Dashboard');
           <Route path="profile" element={<Profile />} />
           <Route path="client" element={<ClientList clients={clients}/>} />
           <Route path="clientprofile/:id" element={<ClientProfile clients={clients}/>} />
+          {/* <Route path="printBill" element={<BillFormat clients={clients}/>}/> */}
+          <Route path="invoice/:id" element={<Invoice clients={clients}/>}/>
+          <Route path="printBill" element={<ClientInvoiceList clients={clients}/>}/>
         </Routes>
+
         </section>
         
     </main>

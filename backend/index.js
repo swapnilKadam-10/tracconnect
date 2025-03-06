@@ -5,6 +5,7 @@ const cors = require('cors');
 const AuthRouter = require('./Routes/AuthRouter');
 const ClientRouter = require('./Routes/ClientRoutes')
 const WorkRouter = require('./Routes/WorkRouter');
+const InvoiceRouter = require('./Routes/InvoiceRouter')
 
 require('dotenv').config();
 require('./Models/db');
@@ -23,6 +24,7 @@ app.use(cors(corsOptions));
 app.use('/auth',AuthRouter);
 app.use('/api',ClientRouter);
 app.use('/work',WorkRouter )
+app.use('/api',InvoiceRouter);
 
 app.listen(PORT, () => {
   console.log('listening on port ' + PORT);
